@@ -1,0 +1,55 @@
+/* Global*/
+@font-face {
+    font-family: 'CascadiaCode';
+    src: url('../../assets/fonts/CascadiaCode.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    line-height: 1.5;
+    
+    font-family: 'CascadiaCode';
+    font-size: 14px;
+}
+
+/* Header */
+header {
+    position: relative;
+
+    padding: 30px 30px 10px 30px;
+    z-index: 1;
+}
+
+header #titlebar {
+    font-size: 20px;
+}
+
+header #titlebar h1 {
+    margin: 0;
+    text-align: left;
+    color: rgb(255, 255, 255, 0.8);
+}
+
+/* Viewer */
+#viewer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+#renderCanvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
