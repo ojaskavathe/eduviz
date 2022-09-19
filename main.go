@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 )
 
 func HomeEndPoint(w http.ResponseWriter, r *http.Request) {
@@ -10,13 +11,17 @@ func HomeEndPoint(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	//port := os.Getenv("PORT")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("Defaulting to port %s", port)
+	}
 	//for loading static assets
 	fs := http.FileServer(http.Dir("./web"))
 	http.Handle("/", fs)
 
 	//http.HandleFunc("/", HomeEndPoint)
-	if err := http.ListenAndServe(":8080" /*+port*/, nil); err != nil {
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal(err)
 	}
 }
