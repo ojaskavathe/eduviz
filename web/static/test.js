@@ -125,9 +125,9 @@ const createScene = function () {
         //if(timer < 2)
         var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true));
         
-        setInterval(() => {
-            timer += 1
-        , 1000})
+        // setInterval(() => {
+        //     timer += 1
+        // , 1000})
 
         //stop the smoke after 5s
         setTimeout(() => {
