@@ -6,16 +6,13 @@ import (
 	"os"
 )
 
-func HomeEndPoint(w http.ResponseWriter, r *http.Request) {
-
-}
-
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 		log.Printf("Defaulting to port %s", port)
 	}
+
 	//for loading static assets
 	fs := http.FileServer(http.Dir("./web"))
 	http.Handle("/", fs)

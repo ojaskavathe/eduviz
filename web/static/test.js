@@ -115,15 +115,25 @@ const createScene = function () {
         //camera.detachControl();
         
         //b_exhaust.textBlock.text = camera.target;
-        
+        //var timer;
+
         camera.moveTo("target", new BABYLON.Vector3(0, 3, -5), 60);
         camera.moveTo("position", new BABYLON.Vector3(14, 2, 18), 20);
 
         particleSystem.start();
+        
+        //if(timer < 2)
         var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true));
         
+        setInterval(() => {
+            timer += 1
+        , 1000})
+
         //stop the smoke after 5s
-        setTimeout(() => { particleSystem.stop(); t1.destroy() }, 2000);
+        setTimeout(() => {
+            particleSystem.stop();
+            t1.destroy();
+        }, 2000);
 
         //camera.attachControl(canvas, true);
     });
