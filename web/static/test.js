@@ -4,15 +4,24 @@
 const canvas = document.getElementById("renderCanvas"); // Get the canvas element
 const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 
+//import * as BABYLON from "./utils.js"
+import {textBox} from "./textBox.js";
+
 BABYLON.ArcRotateCamera.prototype.moveTo = function (whichprop, targetval, speed) {
     var ease = new BABYLON.CubicEase();
+    ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEIN);
+	BABYLON.Animation.CreateAndStartAnimation('at4', this, whichprop, speed, 240, this[whichprop], targetval, 0, ease);
+}
+
+BABYLON.Mesh.prototype.moveTo = function (whichprop, targetval, speed) {
+    var ease = new BABYLON.CubicEase();
     ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
-	BABYLON.Animation.CreateAndStartAnimation('at4', this, whichprop, speed, 360, this[whichprop], targetval, 0, ease);
+	BABYLON.Animation.CreateAndStartAnimation('at4', this, whichprop, speed, 240, this[whichprop], targetval, 0, ease);
 }
 
 var particleSystem;
 
-smoke = function (particleSystem) {
+const smoke = function (particleSystem) {
     
     // lifetime
     particleSystem.minLifeTime = 2;
@@ -103,22 +112,24 @@ const createScene = function () {
     b_exhaust.background = "blue";
     b_exhaust.alpha = 0.5;
     b_exhaust.onPointerUpObservable.add(function() {
-        camera.detachControl();
+        //camera.detachControl();
         
         //b_exhaust.textBlock.text = camera.target;
         
-        camera.moveTo("target", new BABYLON.Vector3(0, 3, -5), 50);
+        camera.moveTo("target", new BABYLON.Vector3(0, 3, -5), 60);
         camera.moveTo("position", new BABYLON.Vector3(14, 2, 18), 20);
 
         particleSystem.start();
+        var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true));
         
         //stop the smoke after 5s
-        setTimeout(() => { particleSystem.stop(); }, 5000);
+        setTimeout(() => { particleSystem.stop(); t1.destroy() }, 2000);
 
-        camera.attachControl(canvas, true);
+        //camera.attachControl(canvas, true);
     });
     advancedTexture.addControl(b_exhaust);
 
+    
     return scene;
 };
 
