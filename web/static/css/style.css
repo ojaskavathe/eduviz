@@ -20,18 +20,41 @@ body {
 header {
     position: relative;
 
-    padding: 30px 30px 10px 30px;
+    padding: 10px 30px 10px 30px;
     z-index: 1;
 }
 
 header #titlebar {
     font-size: 20px;
+    float: left;
 }
 
 header #titlebar h1 {
     margin: 0;
     text-align: left;
-    color: rgb(255, 255, 255, 0.8);
+    color: rgb(0, 0, 0, 0.8);
+}
+
+header #titlebar button {
+    z-index: 0;
+    position: absolute;
+    left:200px;
+    top:15px;
+    border: none;
+    background-color: rgb(127.5, 153, 127.5, 1);
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-family: 'CascadiaCode';
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+header #titlebar button:hover {
+    background-color: sandybrown;
 }
 
 /* Viewer */
@@ -41,10 +64,11 @@ header #titlebar h1 {
     height: 100%;
     overflow: hidden;
 
-    z-index: 0;
+    z-index: -1;
 }
 
 #renderCanvas {
+    position: relative;
     width: 100%;
     height: 100%;
     touch-action: none;

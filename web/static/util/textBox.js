@@ -1,17 +1,16 @@
-/// <reference path = '../vendor/babylonjs/babylon.d.ts' /> 
+/// <reference path = '../../vendor/babylonjs/babylon.d.ts' /> 
 //this is for vscode intellisense ^
 
-export class textBox{
-    constructor(onEnter, onExit){
-        this.plane = BABYLON.MeshBuilder.CreatePlane("plane", {size: 15});
+export class textBox {
+    constructor(onEnter, onExit, scene) {
+        this.plane = new BABYLON.MeshBuilder.CreatePlane("plane", {size: 15}, scene);
         this.plane.position.x = 15;
         this.plane.rotate(new BABYLON.Vector3(0, 1, 0), Math.PI);
         //this.plane.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
         this.plane.scaling = new BABYLON.Vector3(1, 0, 1);
-        this.plane.moveTo("scaling", new BABYLON.Vector3(1, 1, 1), 30);
+        this.plane.moveTo("scaling", new BABYLON.Vector3(1, 1, 1), 300);
 
         this.advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(this.plane);
-
         this.sv = new BABYLON.GUI.ScrollViewer();
         this.sv.thickness = 7;
         this.sv.color = "green";
@@ -48,7 +47,6 @@ export class textBox{
 
     destroy(){
         this.plane.moveTo("scaling", new BABYLON.Vector3(1, 0, 1), 30);
-
         setTimeout(() => { 
             this.tb.dispose();
             this.sv.dispose();

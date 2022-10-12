@@ -11,19 +11,20 @@
     <script src="./vendor/babylonjs/babylon.js"></script>
     <script src="https://cdn.babylonjs.com/loaders/babylon.glTFFileLoader.js"></script>
     <script src="https://cdn.babylonjs.com/gui/babylon.gui.js"></script>
+    <script type="module" src="./static/core/LoadScene.js"></script>
   </head>
   
   <body>
     <section id="viewer">
       <canvas id="renderCanvas" touch-action="none"></canvas>
     </section>
-
     <header>
       <div id="titlebar">
         <h1>eduviz</h1>
+        <button id="switchScene">switch</button> 
+        <script type = "module" src="./static/core/SwitchButton.js"></script>
       </div>
     </header>
 
-    <script type="module" src="./static/test.js"></script>
   </body>
 </html>
