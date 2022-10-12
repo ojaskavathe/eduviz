@@ -55,7 +55,7 @@ const createScene = () => {
         setTimeout(() => {
            t1.destroy();
         }, 2000);
-    }, scene, "Methane")
+    }, scene, "Ethane")
     b_methane.plane.position = new BABYLON.Vector3(-12.0, -4.0, 0.0);
 
     return scene;
