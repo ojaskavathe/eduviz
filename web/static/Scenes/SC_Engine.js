@@ -5,6 +5,7 @@ import { engine, canvas } from "../core/LoadEngine.js";
 
 import { textBox } from "../util/textBox.js";
 import { smoke } from "../util/smokeParticles.js";
+import { glButton } from "../util/glButton.js";
 
 var particleSystem;
 
@@ -36,21 +37,7 @@ const createScene = () => {
     smoke(particleSystem);
 
     // GUI
-    var plane = BABYLON.MeshBuilder.CreatePlane("plane", {size: 10});
-    plane.position.x = 10;
-
-    plane.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
-
-    var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(plane);
-    var b_exhaust = BABYLON.GUI.Button.CreateSimpleButton("but1", "Exhaust");
-    b_exhaust.width = 0.4;
-    b_exhaust.height = 0.2;    ;
-    b_exhaust.color = "white";
-    b_exhaust.fontSize = 100;
-    b_exhaust.background = "blue";
-    b_exhaust.alpha = 0.5;
-
-    var func = function() {
+    var b_exhaust = new glButton(() => {
         //Switch();
         camera.moveTo("target", new BABYLON.Vector3(0, 3, -5), 600);
         camera.moveTo("position", new BABYLON.Vector3(22, 2, 26), 200);
@@ -64,11 +51,8 @@ const createScene = () => {
            particleSystem.stop();
            t1.destroy();
         }, 2000);
-    }
-
-    b_exhaust.onPointerUpObservable.add(func);
-    advancedTexture.addControl(b_exhaust);
-
+    }, scene, "Exhaust")
+    
     return scene;
 };
 export var IC_Engine = createScene();

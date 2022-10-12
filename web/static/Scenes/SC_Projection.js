@@ -5,6 +5,7 @@ import { engine, canvas } from "../core/LoadEngine.js";
 
 import "../util/cameraMove.js"
 import { textBox } from "../util/textBox.js";
+import { glButton } from "../util/glButton.js";
 
 const createScene = () => {
     const scene = new BABYLON.Scene(engine);
@@ -30,34 +31,32 @@ const createScene = () => {
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
 
     // GUI
-    var plane = BABYLON.MeshBuilder.CreatePlane("plane", {size: 10});
-    //plane.parent = sphere;
-    plane.position.x = 10;
-    //plane.rotate(BABYLON.Vector3(0, 1, 0), Math.PI/2)
+    var b_methane = new glButton(() => {
+        camera.moveTo("target", new BABYLON.Vector3(-10, 0, 0), 600);
+        camera.moveTo("position", new BABYLON.Vector3(-25, 10, 26), 200);
 
-    plane.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
+        var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
+        t1.tb.text = "yoooo it's methane";
+        t1.plane.position = new BABYLON.Vector3(-17.0, 4.0, 0.0);
+        setTimeout(() => {
+           t1.destroy();
+        }, 2000);
+    }, scene, "Methane")
+    b_methane.plane.position = new BABYLON.Vector3(-12.0, 4.0, 0.0);
 
-    var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(plane);
-    var b_exhaust = BABYLON.GUI.Button.CreateSimpleButton("but1", "Exhaust");
-    b_exhaust.width = 0.4;
-    b_exhaust.height = 0.2;    ;
-    b_exhaust.color = "white";
-    b_exhaust.fontSize = 100;
-    b_exhaust.background = "blue";
-    b_exhaust.alpha = 0.5;
-    b_exhaust.onPointerUpObservable.add(function() {
+    var b_methane = new glButton(() => {
         camera.moveTo("target", new BABYLON.Vector3(0, 3, -5), 600);
         camera.moveTo("position", new BABYLON.Vector3(22, 2, 26), 200);
 
         var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
+        t1.tb.text = "and this be ethane"
+        t1.plane.position = new BABYLON.Vector3(17.0, -4.0, 0.0);
 
-        //stop the smoke after 5s
         setTimeout(() => {
-           //particleSystem.stop();
            t1.destroy();
         }, 2000);
-    });
-    advancedTexture.addControl(b_exhaust);
+    }, scene, "Methane")
+    b_methane.plane.position = new BABYLON.Vector3(-12.0, -4.0, 0.0);
 
     return scene;
 };

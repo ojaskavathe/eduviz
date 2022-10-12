@@ -1,15 +1,15 @@
 /// <reference path = '../../vendor/babylonjs/babylon.d.ts' /> 
 //this is for vscode intellisense ^
 
-class glButton {
-    constructor(onClick, onExit, scene) {
+export class glButton {
+    constructor(onClick, scene, text) {
         this.plane = new BABYLON.MeshBuilder.CreatePlane("plane", {size: 10}, scene);
         this.plane.position.x = 10;
 
         this.plane.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
 
-        this.advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(plane);
-        this.button = BABYLON.GUI.Button.CreateSimpleButton("but1", "Exhaust");
+        this.advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(this.plane);
+        this.button = BABYLON.GUI.Button.CreateSimpleButton("but1", text);
         this.button.width = 0.4;
         this.button.height = 0.2;    ;
         this.button.color = "white";
