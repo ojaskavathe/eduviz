@@ -28,8 +28,21 @@ const createScene = () => {
     title.sv.addControl(title.tb);
     title.sv.height = 0.2;
     title.sv.width = 1;
+
+    title.tb.paddingTop = "20%";
+    title.tb.paddingLeft = "30px";
+    title.tb.paddingRight = "20px"
+    title.tb.paddingBottom = "5%";
+    title.tb.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+    title.tb.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+    title.tb.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+    title.tb.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+    title.tb.color = "red";
+    title.tb.background = "yellow";
+
+
     title.tb.text = "About Us";
-    title.tb.fontSize = 75;
+    title.tb.fontSize = 95;
     var createLink = function(fontFamily) {
 			
         var headID = document.head;
@@ -59,6 +72,7 @@ const createScene = () => {
     title.plane.position = new BABYLON.Vector3(0.0, 15.0, 0.0);
     title.plane.rotate(new BABYLON.Vector3(0, 1, 0), -Math.PI/2)
 
+    
     var contents = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene, {size:50});
     contents.tb.text = "i am god";
     contents.sv.width = 1;

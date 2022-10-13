@@ -18,7 +18,10 @@ const createScene = () => {
         "pistonAnim.glb", // The file name that should be loaded from the above path
         scene, // The scene to load this mesh/model file into
         function (meshes, particleSystem, skeletons, animationGroups) {
-            animationGroups[0].speedRatio = 10;
+            animationGroups[0].speedRatio = 10; 
+            // for (var i = 0; i < meshes.length; ++i){
+            //     meshes[i].position += new BABYLON.Vector3(0,10,0);
+            // }
         }
     );
 

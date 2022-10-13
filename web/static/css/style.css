@@ -41,7 +41,7 @@ header #titlebar button#switchScene {
     left:200px;
     top:15px;
     border: none;
-    
+
     background-color: transparent;
 
     color: black;
@@ -75,7 +75,7 @@ header #titlebar button#about {
     transition-duration: 0.4s;
 }
 
-header #titlebar button#switchScene:hover, button#about:hover {
+header #titlebar button#switchScene:hover{
     background-color: sandybrown;
 }
 
@@ -102,4 +102,29 @@ header #titlebar button#about:hover {
     overflow: hidden;
     margin: 0;
     padding: 0;
+}
+
+/* reset */
+#reset button#resetButton {
+    z-index: 0;
+    position: absolute;
+    right:70px;
+    bottom:25px;
+    border: none;
+
+    background-color: transparent;
+
+    color: black;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    font-family: 'CascadiaCode';
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#reset button#resetButton:hover {
+    background-color: sandybrown;
 }

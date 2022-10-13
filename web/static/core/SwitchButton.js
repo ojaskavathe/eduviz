@@ -2,13 +2,14 @@
 //this is for vscode intellisense ^
 
 import { SetSw, Switch } from "./SwitchUtil.js";
-import { onAbout, onSwitch } from "./LoadScene.js";
+import { onAbout, onSwitch, onReset } from "./LoadScene.js";
 
-const button = document.getElementById('switchScene');
+const switchButton = document.getElementById('switchScene');
 const aboutButton = document.getElementById('about');
+const resetButton = document.getElementById('resetButton');
 
 // ✅ Works
-button.onclick = function () {
+switchButton.onclick = function () {
   Switch();
   onSwitch();
 };
@@ -16,5 +17,9 @@ button.onclick = function () {
 aboutButton.onclick = function () {
   SetSw(2);
   onAbout();
+};
+
+resetButton.onclick = function () {
+  onReset();
 };
 
