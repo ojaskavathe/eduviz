@@ -1,9 +1,11 @@
 /// <reference path = '../../vendor/babylonjs/babylon.d.ts' /> 
 //this is for vscode intellisense ^
 
+//import "../../static/css/style.css"
+
 export class textBox {
-    constructor(onEnter, onExit, scene) {
-        this.plane = new BABYLON.MeshBuilder.CreatePlane("plane", {size: 15}, scene);
+    constructor(onEnter, onExit, scene, options = {size : 15}) {
+        this.plane = new BABYLON.MeshBuilder.CreatePlane("plane", options, scene);
         this.plane.position.x = 15;
         this.plane.rotate(new BABYLON.Vector3(0, 1, 0), Math.PI);
         //this.plane.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
@@ -19,8 +21,10 @@ export class textBox {
         this.sv.background = "black";
 
         this.advancedTexture.addControl(this.sv);
-
+        
         this.tb = new BABYLON.GUI.TextBlock();
+        this.sv.addControl(this.tb);
+
         this.tb.textWrapping = BABYLON.GUI.TextWrapping.WordWrap;
         this.tb.resizeToFit = true;
         this.tb.paddingTop = "5%";
@@ -40,9 +44,7 @@ export class textBox {
 
         this.tb.text = "this is an exhaust. \nit does \nexhaust things";
 
-        this.tb.fontSize = "32px";
-
-        this.sv.addControl(this.tb);
+        this.tb.fontSize = 32;
     }
 
     destroy(){

@@ -35,7 +35,7 @@ header #titlebar h1 {
     color: rgb(0, 0, 0, 0.8);
 }
 
-header #titlebar button {
+header #titlebar button#switchScene {
     z-index: 0;
     position: absolute;
     left:200px;
@@ -43,7 +43,7 @@ header #titlebar button {
     border: none;
     background-color: rgb(127.5, 153, 127.5, 1);
     color: black;
-    padding: 15px 32px;
+    padding: 15px 15px;
     text-align: center;
     display: inline-block;
     font-family: 'CascadiaCode';
@@ -53,7 +53,29 @@ header #titlebar button {
     transition-duration: 0.4s;
 }
 
-header #titlebar button:hover {
+header #titlebar button#about {
+    z-index: 0;
+    position: absolute;
+    left:300px;
+    top:15px;
+    border: none;
+    background-color: rgb(127.5, 153, 127.5, 1);
+    color: black;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    font-family: 'CascadiaCode';
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+header #titlebar button#switchScene:hover, button#about:hover {
+    background-color: sandybrown;
+}
+
+header #titlebar button#about:hover {
     background-color: sandybrown;
 }
 
