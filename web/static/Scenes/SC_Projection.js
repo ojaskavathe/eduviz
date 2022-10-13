@@ -45,8 +45,8 @@ const createScene = () => {
     b_methane.plane.position = new BABYLON.Vector3(-12.0, 4.0, 0.0);
 
     var b_methane = new glButton(() => {
-        camera.moveTo("target", new BABYLON.Vector3(0, 3, -5), 600);
-        camera.moveTo("position", new BABYLON.Vector3(22, 2, 26), 200);
+        camera.moveTo("target", new BABYLON.Vector3(5, 0, 0), 600);
+        camera.moveTo("position", new BABYLON.Vector3(20, -10, 30), 200);
 
         var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
         t1.tb.text = "and this be ethane"

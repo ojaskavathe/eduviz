@@ -22,7 +22,7 @@ const createScene = () => {
         }
     );
 
-    const camera = new BABYLON.ArcRotateCamera("camera", Math.PI, Math.PI / 2.5, 60, new BABYLON.Vector3(0, 3, -5));
+    const camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 3, Math.PI / 2.5, 60, new BABYLON.Vector3(0, 3, -5));
     camera.upperRadiusLimit = 200;
     camera.lowerRadiusLimit = 30;
     //camera.zoomToMouseLocation = true;

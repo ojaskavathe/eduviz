@@ -48,7 +48,7 @@ export class textBox {
     }
 
     destroy(){
-        this.plane.moveTo("scaling", new BABYLON.Vector3(1, 0, 1), 30);
+        this.plane.moveTo("scaling", new BABYLON.Vector3(1, 0, 1), 300);
         setTimeout(() => { 
             this.tb.dispose();
             this.sv.dispose();

@@ -41,7 +41,9 @@ header #titlebar button#switchScene {
     left:200px;
     top:15px;
     border: none;
-    background-color: rgb(127.5, 153, 127.5, 1);
+    
+    background-color: transparent;
+
     color: black;
     padding: 15px 15px;
     text-align: center;
@@ -59,7 +61,9 @@ header #titlebar button#about {
     left:300px;
     top:15px;
     border: none;
-    background-color: rgb(127.5, 153, 127.5, 1);
+
+    background-color: transparent;
+
     color: black;
     padding: 15px 15px;
     text-align: center;
