@@ -41,7 +41,7 @@ export var smoke = function (particleSystem) {
     var sphereEmitter = particleSystem.createSphereEmitter(0.1);
 
     // Where the particles come from
-    particleSystem.emitter = new BABYLON.Vector3(7, 0, 4); // the starting object, the emitter
+    particleSystem.emitter = new BABYLON.Vector3(0, 0, 0); // the starting object, the emitter
     particleSystem.minEmitBox = new BABYLON.Vector3(-0.5, -0.5, -0.5); // Starting all from
     particleSystem.maxEmitBox = new BABYLON.Vector3(0.5, 0.5, 0.5); // To...
 }

@@ -4,50 +4,60 @@
 import "../util/cameraMove.js"
 
 import { engine } from "./LoadEngine.js"
-import { GetSw } from "./SwitchUtil.js";
+import { GetSw } from "./SwitchUtil.js"
 
+import { ICEngine } from "../Scenes/SC_ICEngine.js"
 import { Projection } from "../Scenes/SC_Projection.js"
-import { IC_Engine } from "../Scenes/SC_Engine.js"
-import { About } from "../Scenes/SC_About.js";
+import { Lungs } from "../Scenes/SC_Lungs.js"
+import { About } from "../Scenes/SC_About.js"
 
-var currentScene = IC_Engine;
+
+var scenes = [
+    ICEngine,
+    Projection,
+    Lungs,
+    About
+]
+
+detachScenes();
+var currentScene = scenes[0];
+currentScene.attachControl();
 
 export var onSwitch = function(){
-    if(GetSw() == 0)
-    {
-        currentScene = IC_Engine;
-        Projection.detachControl();
-        About.detachControl();
-        IC_Engine.attachControl();
-    }
-    else
-    {
-        currentScene = Projection;
-        IC_Engine.detachControl();
-        About.detachControl();
-        Projection.attachControl();
-    }
+
+    detachScenes();
+
+    var cam = currentScene.getCameraByName("camera");
+
+    setTimeout(() => {
+        currentScene = scenes[GetSw()];
+
+        currentScene.attachControl();
+    }, 200);
+
 }
 
 export var onAbout = function(){
-    currentScene = About;
-    Projection.detachControl();
-    IC_Engine.detachControl();
-    About.attachControl();
+    detachScenes();
+    currentScene = scenes[3];
+    currentScene.attachControl();
 }
 
 export var onReset = function(){
-    currentScene.getCameraByName("camera").moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
+    var cam = currentScene.getCameraByName("camera");
+    cam.moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
+    cam.moveTo("radius", 60, 600);
 }
 
 engine.runRenderLoop(() => {
-    if(GetSw() == 0)
-        IC_Engine.render();
-    else if(GetSw() == 1)
-        Projection.render();
-    else if(GetSw() == 2)
-        About.render();
+    currentScene.render();
 });
+
+function detachScenes(){
+    for(let i of scenes){
+        i.detachControl();
+    }
+}
 
 // Watch for browser/canvas resize events
 window.addEventListener("resize", function () {

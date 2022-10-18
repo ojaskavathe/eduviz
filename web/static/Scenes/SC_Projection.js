@@ -13,7 +13,7 @@ const createScene = () => {
 
     BABYLON.SceneLoader.ImportMesh(
         undefined, // Name of meshes to load
-        "../assets/projection/", // Path on a server for the file
+        "../assets/Projection/", // Path on a server for the file
         "scene.glb", // The file name that should be loaded from the above path
         scene, // The scene to load this mesh/model file into
         
@@ -22,7 +22,7 @@ const createScene = () => {
     scene.animationTimeScale = 1;
 
     const camera = new BABYLON.ArcRotateCamera("camera", Math.PI/2, Math.PI / 2.5, 60, new BABYLON.Vector3(0, 0, 0));
-    camera.upperRadiusLimit = 200;
+    //camera.upperRadiusLimit = 200;
     camera.lowerRadiusLimit = 30;
     //camera.zoomToMouseLocation = true;
 
@@ -43,7 +43,7 @@ const createScene = () => {
     }, scene, "Methane")
     b_methane.plane.position = new BABYLON.Vector3(-12.0, 4.0, 0.0);
 
-    var b_methane = new glButton(() => {
+    var b_ethane = new glButton(() => {
         camera.moveTo("target", new BABYLON.Vector3(5, 0, 0), 600);
         camera.moveTo("position", new BABYLON.Vector3(20, -10, 30), 200);
 
@@ -55,7 +55,7 @@ const createScene = () => {
            t1.destroy();
         }, 2000);
     }, scene, "Ethane")
-    b_methane.plane.position = new BABYLON.Vector3(-12.0, -4.0, 0.0);
+    b_ethane.plane.position = new BABYLON.Vector3(-12.0, -4.0, 0.0);
 
     return scene;
 };
