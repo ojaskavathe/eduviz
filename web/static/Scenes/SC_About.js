@@ -43,31 +43,6 @@ const createScene = () => {
 
     title.tb.text = "About Us";
     title.tb.fontSize = 95;
-    // var createLink = function(fontFamily) {
-			
-    //     var headID = document.head;
-    //     var link = document.createElement('link');
-    //     link.rel = 'stylesheet';
-                
-    //     headID.appendChild(link);
-    //     link.href = 'https://fonts.googleapis.com/css?family=' + fontFamily;
-    // }
-    
-    // var loadFonts = function() {
-    
-    //     jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.0.1/fontfaceobserver.js', function () {
-    
-    //         var font = new FontFaceObserver("Pacifico");
-    //         createLink(font.family);
-    
-    //         font.load().then(function () {
-    //             title.fontFamily = font.family;
-    //         });
-            
-    //     });
-    
-    // }
-    // loadFonts();
 
     title.plane.position = new BABYLON.Vector3(0.0, 15.0, 0.0);
     title.plane.rotate(new BABYLON.Vector3(0, 1, 0), -Math.PI/2)
