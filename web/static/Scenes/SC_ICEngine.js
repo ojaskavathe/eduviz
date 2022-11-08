@@ -7,7 +7,7 @@ import { textBox } from "../util/textBox.js";
 import { smoke } from "../util/smokeParticles.js";
 import { glButton } from "../util/glButton.js";
 
-var particleSystem;
+//var particleSystem;
 
 const createScene = () => {
     const scene = new BABYLON.Scene(engine);
@@ -34,18 +34,29 @@ const createScene = () => {
     camera.attachControl(canvas, true);
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
 
-    // Create a particle system
-    particleSystem = new BABYLON.ParticleSystem("particles", 8000, scene);
-    //Texture of each particle
-    particleSystem.particleTexture = new BABYLON.Texture("../../assets/images/smokeParticleTexture.png", scene);
-    smoke(particleSystem);
-    particleSystem.emitter = new BABYLON.Vector3(7, -3, 9)
+    
 
     // GUI
     var b_exhaust = new glButton(() => {
         //Switch();
         camera.moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
         camera.moveTo("position", new BABYLON.Vector3(22, 2, 26), 200);
+
+        document.getElementById("renderCanvas").style.width   = "calc(100% - 350px)";
+        document.getElementById("sideNav").style.width = "350px"; 
+
+        // Create a particle system
+        var particleSystem = new BABYLON.ParticleSystem("particles", 8000, scene);
+        //Texture of each particle
+        particleSystem.particleTexture = new BABYLON.Texture("../../assets/images/smokeParticleTexture.png", scene);
+        smoke(particleSystem);
+        particleSystem.emitter = new BABYLON.Vector3(7, -3, 9)
+        // Create a particle system
+        particleSystem = new BABYLON.ParticleSystem("particles", 8000, scene);
+        //Texture of each particle
+        particleSystem.particleTexture = new BABYLON.Texture("../../assets/images/smokeParticleTexture.png", scene);
+        smoke(particleSystem);
+        particleSystem.emitter = new BABYLON.Vector3(7, -3, 9)
 
         particleSystem.start();
         //if(timer < 2)
@@ -57,7 +68,23 @@ const createScene = () => {
            t1.destroy();
         }, 2000);
     }, scene, "Exhaust")
-    
+
+    var b_cylinder = new glButton(() => {
+        //Switch();
+        camera.moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
+        camera.moveTo("position", new BABYLON.Vector3(-22, 2, 26), 200);
+        //if(timer < 2)
+        var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
+        t1.tb.text = "These automobile engine parts are located in the engine block also known as the cylinder block. It contains a liner or sleeves around it. This liner is worn out when subjected to work and can be easily replaced. The cylinders have part or space for the piston to move upward and downward, making the combustion take place."
+        t1.plane.position = new BABYLON.Vector3(-12.0, 0.0, 0.0);
+
+        //stop the smoke after 5s
+        setTimeout(() => {
+           t1.destroy();
+        }, 2000);
+    }, scene, "Cylinder")
+    b_cylinder.plane.position = new BABYLON.Vector3(-5.0, 0.0, 0.0);
+
     return scene;
 };
 

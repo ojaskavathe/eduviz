@@ -3,14 +3,13 @@
 
 import "../util/cameraMove.js"
 
-import { engine } from "./LoadEngine.js"
+import { canvas, engine } from "./LoadEngine.js"
 import { GetSw } from "./SwitchUtil.js"
 
 import { ICEngine } from "../Scenes/SC_ICEngine.js"
 import { Projection } from "../Scenes/SC_Projection.js"
 import { Lungs } from "../Scenes/SC_Lungs.js"
 import { About } from "../Scenes/SC_About.js"
-
 
 var scenes = [
     ICEngine,
@@ -50,6 +49,7 @@ export var onReset = function(){
 }
 
 engine.runRenderLoop(() => {
+    engine.resize();
     currentScene.render();
 });
 
