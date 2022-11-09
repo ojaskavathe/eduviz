@@ -34,16 +34,11 @@ const createScene = () => {
     camera.attachControl(canvas, true);
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
 
-    
-
     // GUI
-    var b_exhaust = new glButton(() => {
-        //Switch();
+    function onExhaust(){
+        camera.detachControl();
         camera.moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
         camera.moveTo("position", new BABYLON.Vector3(22, 2, 26), 200);
-
-        document.getElementById("renderCanvas").style.width   = "calc(100% - 350px)";
-        document.getElementById("sideNav").style.width = "350px"; 
 
         // Create a particle system
         var particleSystem = new BABYLON.ParticleSystem("particles", 8000, scene);
@@ -59,31 +54,63 @@ const createScene = () => {
         particleSystem.emitter = new BABYLON.Vector3(7, -3, 9)
 
         particleSystem.start();
-        //if(timer < 2)
-        var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
+
+        setTimeout(camera.attachControl(scene, true), 1000);
 
         //stop the smoke after 5s
         setTimeout(() => {
-           particleSystem.stop();
-           t1.destroy();
+            particleSystem.stop();
         }, 2000);
+    }
+    openFromDef("exhaust", onExhaust);
+    var b_exhaust = new glButton(() => {
+        openDef("exhaust");
+        onExhaust();
     }, scene, "Exhaust")
 
-    var b_cylinder = new glButton(() => {
-        //Switch();
+
+    function onCylinder(){
+        camera.detachControl();
         camera.moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
         camera.moveTo("position", new BABYLON.Vector3(-22, 2, 26), 200);
-        //if(timer < 2)
-        var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
-        t1.tb.text = "These automobile engine parts are located in the engine block also known as the cylinder block. It contains a liner or sleeves around it. This liner is worn out when subjected to work and can be easily replaced. The cylinders have part or space for the piston to move upward and downward, making the combustion take place."
-        t1.plane.position = new BABYLON.Vector3(-12.0, 0.0, 0.0);
-
-        //stop the smoke after 5s
-        setTimeout(() => {
-           t1.destroy();
-        }, 2000);
+        setTimeout(camera.attachControl(scene, true), 1000);
+    }
+    openFromDef("cylinder", onCylinder);
+    var b_cylinder = new glButton(()=>{
+        openDef("cylinder");
+        onCylinder();
     }, scene, "Cylinder")
     b_cylinder.plane.position = new BABYLON.Vector3(-5.0, 0.0, 0.0);
+
+    //piston
+    function onPiston(){
+        camera.detachControl();
+        camera.moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
+        camera.moveTo("position", new BABYLON.Vector3(0, 5, 20), 200);
+        setTimeout(camera.attachControl(scene, true), 1000);
+    }
+    openFromDef("piston", onCylinder);
+    var b_piston = new glButton(()=>{
+        openDef("piston");
+        onPiston();
+    }, scene, "Piston")
+    b_piston.plane.position = new BABYLON.Vector3(0.0, 0.0, 10.0);
+
+    //crankshaft
+    //piston
+    function onCrankshaft(){
+        camera.detachControl();
+        camera.moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
+        camera.moveTo("position", new BABYLON.Vector3(10, -5, -20), 200);
+        setTimeout(camera.attachControl(scene, true), 1000);
+    }
+    openFromDef("crankshaft", onCrankshaft);
+    var b_crankshaft = new glButton(()=>{
+        openDef("crankshaft");
+        onCrankshaft();
+    }, scene, "Crankshaft")
+    b_crankshaft.plane.position = new BABYLON.Vector3(0.0, 0.0, -10.0);
+    b_crankshaft.button.width = 0.6;
 
     return scene;
 };

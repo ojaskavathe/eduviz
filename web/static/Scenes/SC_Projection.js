@@ -30,30 +30,29 @@ const createScene = () => {
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
 
     // GUI
-    var b_methane = new glButton(() => {
+    function onMethane(){
+        camera.detachControl();
         camera.moveTo("target", new BABYLON.Vector3(-10, 0, 0), 600);
         camera.moveTo("position", new BABYLON.Vector3(-25, 10, 26), 200);
-
-        var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
-        t1.tb.text = "yoooo it's methane";
-        t1.plane.position = new BABYLON.Vector3(-17.0, 4.0, 0.0);
-        setTimeout(() => {
-           t1.destroy();
-        }, 2000);
+        setTimeout(camera.attachControl(scene, true), 1000);
+    }
+    openFromDef("methane", onMethane);
+    var b_methane = new glButton(() => {
+        openDef("methane");
+        onMethane();
     }, scene, "Methane")
     b_methane.plane.position = new BABYLON.Vector3(-12.0, 4.0, 0.0);
 
-    var b_ethane = new glButton(() => {
+    function onEthane(){
+        camera.detachControl();
         camera.moveTo("target", new BABYLON.Vector3(5, 0, 0), 600);
         camera.moveTo("position", new BABYLON.Vector3(20, -10, 30), 200);
-
-        var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
-        t1.tb.text = "and this be ethane"
-        t1.plane.position = new BABYLON.Vector3(17.0, -4.0, 0.0);
-
-        setTimeout(() => {
-           t1.destroy();
-        }, 2000);
+        setTimeout(camera.attachControl(scene, true), 1000);
+    }
+    openFromDef("ethane", onEthane);
+    var b_ethane = new glButton(() => {
+        openDef("ethane");
+        onEthane();
     }, scene, "Ethane")
     b_ethane.plane.position = new BABYLON.Vector3(-12.0, -4.0, 0.0);
 

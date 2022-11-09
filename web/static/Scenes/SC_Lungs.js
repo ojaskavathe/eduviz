@@ -31,40 +31,42 @@ const createScene = () => {
 
     // GUI
 
-    var b_larynx = new glButton(() => {
+    function onLarynx(){
+        camera.detachControl();
         camera.moveTo("target", new BABYLON.Vector3(5, 16, 0), 600);
         camera.moveTo("position", new BABYLON.Vector3(20, 15, 15), 200);
 
         b_larynx.plane.moveTo("position", new BABYLON.Vector3(0.0, 18.0, 0.0), 300);
         b_larynx.plane.scaling.z = 0.5;
 
-        var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
-        t1.tb.text = "this the larynx";
-        t1.plane.position = new BABYLON.Vector3(10.0, 18.0, -5.0);
-        t1.plane.rotate(new BABYLON.Vector3(0, 1, 0), Math.PI / 6);
         setTimeout(() => {
             b_larynx.plane.moveTo("position", new BABYLON.Vector3(4.0, 18.0, 0.5), 300);
-            t1.destroy();
         }, 2000);
+        setTimeout(camera.attachControl(scene, true), 1000);
+    }
+    var b_larynx = new glButton(() => {
+        openDef("larynx");
+        onLarynx();
     }, scene, "Larynx")
-
     b_larynx.plane.position = new BABYLON.Vector3(4.0, 18.0, 0.0);
 
-    var b_trachea = new glButton(() => {
+
+    function onTrachea(){
+        camera.detachControl();
         camera.moveTo("target", new BABYLON.Vector3(0, 14, 0), 600);
         camera.moveTo("position", new BABYLON.Vector3(20, 15, -15), 200);
 
         b_trachea.plane.moveTo("position", new BABYLON.Vector3(10.0, 14.0, 5.0), 300);
         b_trachea.plane.scaling.z = 0.5;
 
-        var t1 = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene);
-        t1.tb.text = "yo trachea";
-        t1.plane.position = new BABYLON.Vector3(0.0, 15.0, -7.0);
-        t1.plane.rotate(new BABYLON.Vector3(0, 1, 0), 1.2 * Math.PI / 2);
         setTimeout(() => {
             b_trachea.plane.moveTo("position", new BABYLON.Vector3(4.0, 14.0, -4.0), 300);
-            t1.destroy();
         }, 2000);
+        setTimeout(camera.attachControl(scene, true), 1000);
+    }
+    var b_trachea = new glButton(() => {
+        openDef("trachea");
+        onTrachea();
     }, scene, "Trachea")
     b_trachea.plane.position = new BABYLON.Vector3(4.0, 14.0, -4.0);
 

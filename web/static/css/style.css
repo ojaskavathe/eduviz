@@ -158,15 +158,11 @@ body {
 	padding: 0;
 }
 
-.sidenav .defs .def-dropdown {
-    
-}
-
 .sidenav .defs .def-dropdown a {
 	display: block;
 	padding: 10px 15px;
 	color: #333;
-
+    text-decoration: none;
     background-color: transparent;
     min-width: 160px;
     z-index: 1;
