@@ -49,7 +49,7 @@ const createScene = () => {
 
     
     var contents = new textBox(camera.detachControl(), camera.attachControl(scene, true), scene, {size:50});
-    contents.tb.text = "hello.\ni am god";
+    contents.tb.text = "We are a group of students from KJ Somaiya Institute of Engineering and Information Technology.\n\nWe created this website to make learning concepts in 3D much easier. Enjoy a curated set of hand modelled and hand animated assets, in a fully interactable environment.\n\n Have fun and learn!";
     contents.sv.width = 1;
     contents.plane.position = new BABYLON.Vector3(0.0, 0.0, 0.0);
     contents.plane.rotate(new BABYLON.Vector3(0, 1, 0), -Math.PI/2)
