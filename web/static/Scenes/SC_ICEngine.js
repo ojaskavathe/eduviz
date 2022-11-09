@@ -89,7 +89,7 @@ const createScene = () => {
         camera.moveTo("position", new BABYLON.Vector3(0, 5, 20), 200);
         setTimeout(camera.attachControl(scene, true), 1000);
     }
-    openFromDef("piston", onCylinder);
+    openFromDef("piston", onPiston);
     var b_piston = new glButton(()=>{
         openDef("piston");
         onPiston();
