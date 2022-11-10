@@ -70,6 +70,42 @@ const createScene = () => {
     }, scene, "Trachea")
     b_trachea.plane.position = new BABYLON.Vector3(4.0, 14.0, -4.0);
 
+    function onBronchi(){
+        camera.detachControl();
+        camera.moveTo("target", new BABYLON.Vector3(7.0, 5.0, 0.0), 600);
+        camera.moveTo("position", new BABYLON.Vector3(10, 4, 0), 200);
+
+        b_bronchi.plane.moveTo("position", new BABYLON.Vector3(4.0, 5.0, 5.0), 300);
+
+        setTimeout(() => {
+            b_bronchi.plane.moveTo("position", new BABYLON.Vector3(7.0, 10.0, 2.0), 300);
+        }, 2000);
+        setTimeout(camera.attachControl(scene, true), 1000);
+    }
+    var b_bronchi = new glButton(() => {
+        openDef("bronchi");
+        onBronchi();
+    }, scene, "Bronchi")
+    b_bronchi.plane.position = new BABYLON.Vector3(-7.0, 10.0, 2.0);
+
+    function onAlveoli(){
+        camera.detachControl();
+        camera.moveTo("target", new BABYLON.Vector3(4.0, 7.0, 10.0), 600);
+        camera.moveTo("position", new BABYLON.Vector3(10, 6, 2), 200);
+
+        b_alveoli.plane.moveTo("position", new BABYLON.Vector3(4.0, 7.0, 20.0), 300);
+
+        setTimeout(() => {
+            b_alveoli.plane.moveTo("position", new BABYLON.Vector3(4.0, 4.0, 12.0), 300);
+        }, 2000);
+        setTimeout(camera.attachControl(scene, true), 1000);
+    }
+    var b_alveoli = new glButton(() => {
+        openDef("alveoli");
+        onAlveoli();
+    }, scene, "Alveoli")
+    b_alveoli.plane.position = new BABYLON.Vector3(4.0, 4.0, 12.0);
+
     return scene;
 };
 

@@ -68,17 +68,18 @@ lungs.onclick = function () {
   $(".def-dropdown").eq(1).children("a").text("Trachea");
   $(".def-dropdown").eq(1).children("p").text("The trachea, also known as the windpipe, is a cartilaginous tube that connects the larynx to the bronchi of the lungs, allowing the passage of air, and so is present in almost all air-breathing animals with lungs. The trachea extends from the larynx and branches into the two primary bronchi. At the top of the trachea the cricoid cartilage attaches it to the larynx. The trachea is formed by a number of horseshoe-shaped rings, joined together vertically by overlying ligaments, and by the trachealis muscle at their ends. The epiglottis closes the opening to the larynx during swallowing.");
 
-  $(".def-dropdown").eq(2).attr("id", "piston");
-  $(".def-dropdown").eq(2).children("a").text("");
-  $(".def-dropdown").eq(2).children("p").text("");
+  $(".def-dropdown").eq(2).attr("id", "bronchi");
+  $(".def-dropdown").eq(2).children("a").text("Bronchi");
+  $(".def-dropdown").eq(2).children("p").text("The lungs begin at the bottom of your trachea (windpipe). The trachea is a tube that carries the air in and out of your lungs. Each lung has a tube called a bronchus that connects to the trachea. The trachea and bronchi airways form an upside-down “Y” in your chest. This “Y” is often called the bronchial tree. The bronchi branch off into smaller bronchi and even smaller tubes called bronchioles. Like the branches of a tree, these tiny tubes stretch out into every part of your lungs. Some of them are so tiny that they have the thickness of a hair. You have almost 30,000 bronchioles in each lung.");
 
-  $(".def-dropdown").eq(3).attr("id", "crankshaft");
-  $(".def-dropdown").eq(3).children("a").text("");
-  $(".def-dropdown").eq(3).children("p").text("");
+  $(".def-dropdown").eq(3).attr("id", "alveoli");
+  $(".def-dropdown").eq(3).children("a").text("Alveoli");
+  $(".def-dropdown").eq(3).children("p").text("Each bronchiole tube ends with a cluster of small air sacs called alveoli (individually referred to as alveolus). They look like tiny grape bunches or very tiny balloons. There are about 600 million alveoli in your lungs. The small bubble shapes of the alveoli give your lungs a surprising amount of surface area — equivalent to the size of a tennis court. This means there’s plenty of room for vital oxygen to pass into your body.");
 };
 
 
 aboutButton.onclick = function () {
+  closeNav();
   SetSw(3);
   onAbout();
 };
