@@ -3,18 +3,20 @@
 
 import "../util/cameraMove.js"
 
-import { canvas, engine } from "./LoadEngine.js"
+import { engine } from "./LoadEngine.js"
 import { GetSw } from "./SwitchUtil.js"
 
 import { ICEngine } from "../Scenes/SC_ICEngine.js"
 import { Projection } from "../Scenes/SC_Projection.js"
 import { Lungs } from "../Scenes/SC_Lungs.js"
 import { About } from "../Scenes/SC_About.js"
+import { SolarSystem } from "../Scenes/SC_SolarSystem.js"
 
 var scenes = [
     ICEngine,
     Projection,
     Lungs,
+    SolarSystem,
     About
 ]
 
@@ -25,6 +27,8 @@ currentScene.attachControl();
 export var onSwitch = function(){
 
     detachScenes();
+
+    $("#defs").empty();
 
     var cam = currentScene.getCameraByName("camera");
 

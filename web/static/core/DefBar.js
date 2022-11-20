@@ -50,8 +50,16 @@ function openFromDef(term, func){
     );
 }
 
-function switchDefs(term, index, text){
-    $(".def-dropdown").eq(index).attr("id", term);
-    $(".def-dropdown").eq(index).children("a").text(term);
-    $(".def-dropdown").eq(index).children("p").text(text);
+function switchDefs(_term, _index, _text){
+    var li = $("<li class='def-dropdown' id='" + _term + "'></li>");
+    
+    var defTerm = $("<a href='#a'>" + _term + "</a>");
+    var defDef = $("<p></p>").text(_text);
+
+    li.append(defTerm, defDef);
+    $("#defs").append(li);
+
+    //$(".def-dropdown").eq(index).attr("id", term);
+    //$(".def-dropdown").eq(index).children("a").text(term);
+    //$(".def-dropdown").eq(index).children("p").text(text);
 }
