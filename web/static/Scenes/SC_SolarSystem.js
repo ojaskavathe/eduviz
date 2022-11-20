@@ -9,8 +9,11 @@ import { glButton } from "../util/glButton.js";
 
 const createScene = () => {
     const scene = new BABYLON.Scene(engine);
-    scene.clearColor = new BABYLON.Color3(0.05, 0.05, 0.15);
+    scene.clearColor = new BABYLON.Color3(0.05, 0.05, 0.1);
     
+    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0));
+    light.intensity = 0.03;
+
     const pointLight = new BABYLON.PointLight("sun", new BABYLON.Vector3(0, 0, 0), scene);
     pointLight.intensity = 500000.0;
 
