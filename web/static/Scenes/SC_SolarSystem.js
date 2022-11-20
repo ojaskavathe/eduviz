@@ -38,6 +38,8 @@ const createScene = () => {
 
     function cameraLock(_term){
         camera.lockedTarget = scene.getMeshByName(_term);
+        if(_term == "Sun") camera.radius = 400;
+        else camera.radius = 100;
     };
 
     const planets = [
@@ -58,8 +60,6 @@ const createScene = () => {
 
     scene.onPointerDown = function(evt, pickInfo) {
         if(pickInfo.hit && planets.includes(pickInfo.pickedMesh.name)) {
-            camera.radius = 300;
-            camera.lockedTarget = pickInfo.pickedMesh;
             openDef(pickInfo.pickedMesh.name);
             cameraLock(pickInfo.pickedMesh.name);
         }
