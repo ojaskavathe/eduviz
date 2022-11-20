@@ -16,7 +16,7 @@ const createScene = () => {
     BABYLON.SceneLoader.ImportMesh(
         undefined, // Name of meshes to load
         "../assets/solarSystem/", // Path on a server for the file
-        "solarSystem1.glb", // The file name that should be loaded from the above path
+        "solarSystem.glb", // The file name that should be loaded from the above path
         scene, // The scene to load this mesh/model file into
         (meshes, particleSystem, skeletons, animationGroups) => { //on load
             animationGroups[0].speedRatio = 1;
@@ -35,65 +35,33 @@ const createScene = () => {
     //camera.zoomToMouseLocation = true;
 
     camera.attachControl(canvas, true);
-    //const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
 
-    function f(_term){
+    function cameraLock(_term){
         camera.lockedTarget = scene.getMeshByName(_term);
     };
 
-    openFromDef("Sun",      ()=>{f("Sun")});
-    openFromDef("Mercury",  ()=>{f("Mercury")});
-    openFromDef("Venus",    ()=>{f("Venus")});
-    openFromDef("Earth",    ()=>{f("Earth")});
-    openFromDef("Mars",     ()=>{f("Mars")});
-    openFromDef("Jupiter",  ()=>{f("Jupiter")});
-    openFromDef("Saturn",   ()=>{f("Saturn")});
-    openFromDef("Uranus",   ()=>{f("Uranus")});
-    openFromDef("Neptune",  ()=>{f("Neptune")});
+    const planets = [
+        "Sun",
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Uranus",
+        "Neptune"
+    ];
+
+    planets.forEach(function (_planet, _index) {
+        openFromDef(_planet, ()=>{cameraLock(_planet)});
+    });
 
     scene.onPointerDown = function(evt, pickInfo) {
-        if(pickInfo.hit) {
+        if(pickInfo.hit && planets.includes(pickInfo.pickedMesh.name)) {
             camera.radius = 300;
             camera.lockedTarget = pickInfo.pickedMesh;
-            switch(pickInfo.pickedMesh.name)
-            {
-                case "Sun":
-                    openDef("Sun");
-                    f("Sun");
-                    break;
-                case "Mercury":
-                    openDef("Mercury");
-                    f("Mercury");
-                    break;
-                case "Venus":
-                    openDef("Venus");
-                    f("Venus");
-                    break;
-                case "Earth":
-                    openDef("Earth");
-                    f("Earth");
-                    break;
-                case "Mars":
-                    openDef("Mars");
-                    f("Mars");
-                    break;
-                case "Jupiter":
-                    openDef("Jupiter");
-                    f("Jupiter");
-                    break;
-                case "Saturn":
-                    openDef("Saturn");
-                    f("Saturn");
-                    break;
-                case "Uranus":
-                    openDef("Uranus");
-                    f("Uranus");
-                    break;
-                case "Neptune":
-                    openDef("Neptune");
-                    f("Neptune");
-                    break;
-            }
+            openDef(pickInfo.pickedMesh.name);
+            cameraLock(pickInfo.pickedMesh.name);
         }
     }
 
