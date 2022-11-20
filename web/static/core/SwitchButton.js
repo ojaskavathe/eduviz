@@ -50,18 +50,23 @@ solarSystem.onclick = function () {
   SetSw(3);
   onSwitch();
 
-  switchDefs("Larynx", 0, "Your larynx is part of your respiratory system. It's a hollow tube that lets air pass from your throat (pharynx) to your trachea on the way to your lungs. It also contains your vocal cords and is essential to human speech, so it's often called the voice box.");
-  switchDefs("Trachea", 1, "The trachea, also known as the windpipe, is a cartilaginous tube that connects the larynx to the bronchi of the lungs, allowing the passage of air, and so is present in almost all air-breathing animals with lungs. The trachea extends from the larynx and branches into the two primary bronchi. At the top of the trachea the cricoid cartilage attaches it to the larynx. The trachea is formed by a number of horseshoe-shaped rings, joined together vertically by overlying ligaments, and by the trachealis muscle at their ends. The epiglottis closes the opening to the larynx during swallowing.");
-  switchDefs("Bronchi", 2, "The lungs begin at the bottom of your trachea (windpipe). The trachea is a tube that carries the air in and out of your lungs. Each lung has a tube called a bronchus that connects to the trachea. The trachea and bronchi airways form an upside-down “Y” in your chest. This “Y” is often called the bronchial tree. The bronchi branch off into smaller bronchi and even smaller tubes called bronchioles. Like the branches of a tree, these tiny tubes stretch out into every part of your lungs. Some of them are so tiny that they have the thickness of a hair. You have almost 30,000 bronchioles in each lung.");
-  switchDefs("Alveoli", 3, "Each bronchiole tube ends with a cluster of small air sacs called alveoli (individually referred to as alveolus). They look like tiny grape bunches or very tiny balloons. There are about 600 million alveoli in your lungs. The small bubble shapes of the alveoli give your lungs a surprising amount of surface area — equivalent to the size of a tennis court. This means there’s plenty of room for vital oxygen to pass into your body.");
-
+  switchDefs("Sun", 0, "The Sun is a yellow dwarf star, a hot ball of glowing gases at the heart of our solar system. Its gravity holds everything from the biggest planets to tiny debris in its orbit.");
+  switchDefs("Mercury", 1, "Mercury—the smallest planet in our solar system and closest to the Sun—is only slightly larger than Earth's Moon. Mercury is the fastest planet, zipping around the Sun every 88 Earth days.");
+  switchDefs("Venus", 2, "Venus spins slowly in the opposite direction from most planets. A thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.");
+  switchDefs("Earth", 3, "Earth—our home planet—is the only place we know of so far that's inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.");
+  switchDefs("Mars", 4, "Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was—billions of years ago—wetter and warmer, with a thicker atmosphere.");
+  switchDefs("Jupiter", 5, "Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red spot is a centuries-old storm bigger than Earth.");
+  switchDefs("Saturn", 6, "Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.");
+  switchDefs("Uranus", 7, "Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.");
+  switchDefs("Neptune", 8, "Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.");
+  
   closeAllDefs();
 };
 
 aboutButton.onclick = function () {
   closeNav();
   SetSw(4);
-  onAbout();
+  onSwitch();
 };
 
 resetButton.onclick = function () {

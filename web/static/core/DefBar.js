@@ -26,26 +26,25 @@ function closeAllDefs(){
     $(".def-dropdown").children("p").hide();
 }
 
-function openDef(term, closeAll = true){
+function openDef(_term, _closeAll = true){
     openNav();
-    if(closeAll == true){
-        $(".def-dropdown[id!='" + term + "']").children("p").slideUp("100");
+    if(_closeAll == true){
+        $(".def-dropdown[id!='" + _term + "']").children("p").slideUp("100");
     }
 
     $(document).ready( ()=>{
-        $("#" + term).children("p").slideDown("100");
+        $("#" + _term).children("p").slideDown("100");
     });
 }
 
 //have to set onClick from parent as child doesn't exist when other scenes are loaded
-function openFromDef(term, func){
-    $("#defs").on('click', '#' + term + ' a', // '#exhaust a'
+function openFromDef(_term, _func){
+    $("#defs").on('click', '#' + _term + ' a', // '#exhaust a'
         function(){
-            console.log(term);
-            func();
-            $(".def-dropdown[id!='" + term + "']").children("p").slideUp("100");
+            _func();
+            $(".def-dropdown[id!='" + _term + "']").children("p").slideUp("100");
             $(this).parent().children("p").slideDown("100");
-            // document.getElementById(term).scrollIntoView(true);
+            //document.getElementById(_term).scrollIntoView(true);
         }
     );
 }
@@ -53,7 +52,7 @@ function openFromDef(term, func){
 function switchDefs(_term, _index, _text){
     var li = $("<li class='def-dropdown' id='" + _term + "'></li>");
     
-    var defTerm = $("<a href='#a'>" + _term + "</a>");
+    var defTerm = $("<a>" + _term + "</a>");
     var defDef = $("<p></p>").text(_text);
 
     li.append(defTerm, defDef);

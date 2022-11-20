@@ -4,6 +4,6 @@ export function GetSw() {
     return sw;
 }
 
-export function SetSw(page) {
-    sw = page;
+export function SetSw(_page) {
+    sw = _page;
 }

@@ -34,7 +34,17 @@ export var onSwitch = function(){
 
     setTimeout(() => {
         currentScene = scenes[GetSw()];
-
+        if(currentScene == scenes[3]) //solarSystem
+        {
+            $("#titlebar h1").css("color", "white");
+            $("#titlebar button").css("color", "white");
+            $("#reset button").css("color", "white");
+        } else 
+        {
+            $("#titlebar h1").css("color", "rgb(0, 0, 0, 0.8)");
+            $("#titlebar button").css("color", "black");
+            $("#reset button").css("color", "black");
+        }
         currentScene.attachControl();
     }, 200);
 
@@ -42,14 +52,24 @@ export var onSwitch = function(){
 
 export var onAbout = function(){
     detachScenes();
-    currentScene = scenes[3];
+    currentScene = scenes[4];
     currentScene.attachControl();
 }
 
 export var onReset = function(){
-    var cam = currentScene.getCameraByName("camera");
-    cam.moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
-    cam.moveTo("radius", 60, 600);
+
+    if(currentScene == scenes[3]) //Solar System
+    {
+        var cam = currentScene.getCameraByName("camera");
+        cam.lockedTarget = null;
+        cam.moveTo("target", new BABYLON.Vector3(0, 0, 0), 6000);
+        cam.moveTo("radius", 600, 6000);
+    } else 
+    {
+        var cam = currentScene.getCameraByName("camera");
+        cam.moveTo("target", new BABYLON.Vector3(0, 0, 0), 600);
+        cam.moveTo("radius", 60, 600);            
+    } 
 }
 
 engine.runRenderLoop(() => {
