@@ -30,6 +30,7 @@ body {
 }
 
 #titlebar h1 {
+    transition-duration: 0.4s;
     margin: 0;
     text-align: left;
     color: rgb(0, 0, 0, 0.8);

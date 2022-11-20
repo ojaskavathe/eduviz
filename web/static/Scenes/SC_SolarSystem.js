@@ -3,13 +3,9 @@
 
 import { engine, canvas } from "../core/LoadEngine.js";
 
-import { glButton } from "../util/glButton.js";
-
-//var particleSystem;
-
 const createScene = () => {
     const scene = new BABYLON.Scene(engine);
-    scene.clearColor = new BABYLON.Color3(0.05, 0.05, 0.1);
+    scene.clearColor = new BABYLON.Color3(0.1, 0.1, 0.15);
     
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 0, 0));
     light.intensity = 0.03;
@@ -54,16 +50,6 @@ const createScene = () => {
     openFromDef("Saturn",   ()=>{f("Saturn")});
     openFromDef("Uranus",   ()=>{f("Uranus")});
     openFromDef("Neptune",  ()=>{f("Neptune")});
-
-    // scene.onPointerPick = function (evt, pickInfo) {
-    //     //Show delete button if there is a picked mesh
-    //     if (pickInfo.pickedMesh) {
-    //         var selectedMesh = pickInfo.pickedMesh;
-    //         //console.log(selectedMesh.position);
-    //         console.log(scene.getMeshByName("pSphere1_phong1_0"));
-    //         //pointLight.excludedMeshes.push(scene.getMeshByName("pSphere1_phong1_0"));	
-    //     }
-    // }
 
     scene.onPointerDown = function(evt, pickInfo) {
         if(pickInfo.hit) {
