@@ -13,11 +13,13 @@ $(document).ready(closeAllDefs());
 function openNav() {
     document.getElementById("renderCanvas").style.width = "calc(100% - 350px)";
     document.getElementById("sideNav").style.width = "350px";
+    document.getElementById("resetButton").style.right = "400px";
 }
 
 function closeNav() {
     document.getElementById("renderCanvas").style.width = "100%";
     document.getElementById("sideNav").style.width = "0";
+    document.getElementById("resetButton").style.right = "70px";
 }
 
 function closeAllDefs(){
@@ -35,8 +37,9 @@ function openDef(term, closeAll = true){
     });
 }
 
+//have to set onClick from parent as child doesn't exist when other scenes are loaded
 function openFromDef(term, func){
-    $("#" + term).children("a").click(
+    $("#defs").on('click', '#' + term + ' a', // '#exhaust a'
         function(){
             console.log(term);
             func();
@@ -45,4 +48,10 @@ function openFromDef(term, func){
             // document.getElementById(term).scrollIntoView(true);
         }
     );
+}
+
+function switchDefs(term, index, text){
+    $(".def-dropdown").eq(index).attr("id", term);
+    $(".def-dropdown").eq(index).children("a").text(term);
+    $(".def-dropdown").eq(index).children("p").text(text);
 }

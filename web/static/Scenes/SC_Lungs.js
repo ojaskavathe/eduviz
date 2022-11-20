@@ -9,14 +9,13 @@ import { glButton } from "../util/glButton.js";
 
 const createScene = () => {
     const scene = new BABYLON.Scene(engine);
-    scene.clearColor = new BABYLON.Color3(0.5, 0.6, 0.5);
+    scene.clearColor = new BABYLON.Color3(0.45, 0.45, 0.55);
 
     BABYLON.SceneLoader.ImportMesh(
         undefined, // Name of meshes to load
         "../assets/lungs/", // Path on a server for the file
         "scene.glb", // The file name that should be loaded from the above path
         scene, // The scene to load this mesh/model file into
-        
     );
 
     scene.animationTimeScale = 1;
@@ -44,8 +43,9 @@ const createScene = () => {
         }, 2000);
         setTimeout(camera.attachControl(scene, true), 1000);
     }
+    openFromDef("Larynx", onLarynx);
     var b_larynx = new glButton(() => {
-        openDef("larynx");
+        openDef("Larynx");
         onLarynx();
     }, scene, "Larynx")
     b_larynx.plane.position = new BABYLON.Vector3(4.0, 18.0, 0.0);
@@ -64,8 +64,10 @@ const createScene = () => {
         }, 2000);
         setTimeout(camera.attachControl(scene, true), 1000);
     }
+    openFromDef("Trachea", onTrachea);
+
     var b_trachea = new glButton(() => {
-        openDef("trachea");
+        openDef("Trachea");
         onTrachea();
     }, scene, "Trachea")
     b_trachea.plane.position = new BABYLON.Vector3(4.0, 14.0, -4.0);
@@ -82,8 +84,9 @@ const createScene = () => {
         }, 2000);
         setTimeout(camera.attachControl(scene, true), 1000);
     }
+    openFromDef("Bronchi", onBronchi);
     var b_bronchi = new glButton(() => {
-        openDef("bronchi");
+        openDef("Bronchi");
         onBronchi();
     }, scene, "Bronchi")
     b_bronchi.plane.position = new BABYLON.Vector3(-7.0, 10.0, 2.0);
@@ -100,8 +103,9 @@ const createScene = () => {
         }, 2000);
         setTimeout(camera.attachControl(scene, true), 1000);
     }
+    openFromDef("Alveoli", onAlveoli);
     var b_alveoli = new glButton(() => {
-        openDef("alveoli");
+        openDef("Alveoli");
         onAlveoli();
     }, scene, "Alveoli")
     b_alveoli.plane.position = new BABYLON.Vector3(4.0, 4.0, 12.0);

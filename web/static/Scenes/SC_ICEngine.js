@@ -11,7 +11,7 @@ import { glButton } from "../util/glButton.js";
 
 const createScene = () => {
     const scene = new BABYLON.Scene(engine);
-    scene.clearColor = new BABYLON.Color3(0.5, 0.6, 0.5);
+    scene.clearColor = new BABYLON.Color3(0.45, 0.45, 0.55);
     BABYLON.SceneLoader.ImportMesh(
         undefined, // Name of meshes to load
         "../assets/engine/", // Path on a server for the file
@@ -62,9 +62,9 @@ const createScene = () => {
             particleSystem.stop();
         }, 2000);
     }
-    openFromDef("exhaust", onExhaust);
+    openFromDef("Exhaust", onExhaust);
     var b_exhaust = new glButton(() => {
-        openDef("exhaust");
+        openDef("Exhaust");
         onExhaust();
     }, scene, "Exhaust")
 
@@ -75,9 +75,9 @@ const createScene = () => {
         camera.moveTo("position", new BABYLON.Vector3(-22, 2, 26), 200);
         setTimeout(camera.attachControl(scene, true), 1000);
     }
-    openFromDef("cylinder", onCylinder);
+    openFromDef("Cylinder", onCylinder);
     var b_cylinder = new glButton(()=>{
-        openDef("cylinder");
+        openDef("Cylinder");
         onCylinder();
     }, scene, "Cylinder")
     b_cylinder.plane.position = new BABYLON.Vector3(-5.0, 0.0, 0.0);
@@ -89,9 +89,9 @@ const createScene = () => {
         camera.moveTo("position", new BABYLON.Vector3(0, 5, 20), 200);
         setTimeout(camera.attachControl(scene, true), 1000);
     }
-    openFromDef("piston", onPiston);
+    openFromDef("Piston", onPiston);
     var b_piston = new glButton(()=>{
-        openDef("piston");
+        openDef("Piston");
         onPiston();
     }, scene, "Piston")
     b_piston.plane.position = new BABYLON.Vector3(0.0, 0.0, 10.0);
@@ -104,9 +104,9 @@ const createScene = () => {
         camera.moveTo("position", new BABYLON.Vector3(10, -5, -20), 200);
         setTimeout(camera.attachControl(scene, true), 1000);
     }
-    openFromDef("crankshaft", onCrankshaft);
+    openFromDef("Crankshaft", onCrankshaft);
     var b_crankshaft = new glButton(()=>{
-        openDef("crankshaft");
+        openDef("Crankshaft");
         onCrankshaft();
     }, scene, "Crankshaft")
     b_crankshaft.plane.position = new BABYLON.Vector3(0.0, 0.0, -10.0);

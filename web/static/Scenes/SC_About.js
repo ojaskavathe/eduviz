@@ -7,7 +7,7 @@ import { textBox } from "../util/textBox.js";
 
 const createScene = () => {
     const scene = new BABYLON.Scene(engine);
-    scene.clearColor = new BABYLON.Color3(0.5, 0.6, 0.5);
+    scene.clearColor = new BABYLON.Color3(0.45, 0.45, 0.55);
 
     scene.animationTimeScale = 1;
 
