@@ -14,7 +14,7 @@ func main() {
 	}
 
 	//for loading static assets
-	fs := http.FileServer(http.Dir("./web"))
+	fs := http.FileServer(http.Dir("./docs"))
 	http.Handle("/", fs)
 
 	//http.HandleFunc("/", HomeEndPoint)
