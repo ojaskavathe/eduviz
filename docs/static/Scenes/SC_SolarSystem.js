@@ -15,7 +15,7 @@ const createScene = () => {
 
     BABYLON.SceneLoader.ImportMesh(
         undefined, // Name of meshes to load
-        "../../assets/solarSystem/", // Path on a server for the file
+        "/eduviz/docs/assets/solarSystem/", // Path on a server for the file
         "solarSystem.glb", // The file name that should be loaded from the above path
         scene, // The scene to load this mesh/model file into
         (meshes, particleSystem, skeletons, animationGroups) => { //on load
