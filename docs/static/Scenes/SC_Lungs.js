@@ -13,7 +13,7 @@ const createScene = () => {
 
     BABYLON.SceneLoader.ImportMesh(
         undefined, // Name of meshes to load
-        "/eduviz/docs/assets/assets/lungs/", // Path on a server for the file
+        "/eduviz/assets/lungs/", // Path on a server for the file
         "scene.glb", // The file name that should be loaded from the above path
         scene, // The scene to load this mesh/model file into
     );

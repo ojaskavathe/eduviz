@@ -14,7 +14,7 @@ const createScene = () => {
     scene.clearColor = new BABYLON.Color3(0.45, 0.45, 0.55);
     BABYLON.SceneLoader.ImportMesh(
         undefined, // Name of meshes to load
-        "/eduviz/docs/assets/engine/", // Path on a server for the file
+        "/eduviz/assets/engine/", // Path on a server for the file
         "pistonAnim.glb", // The file name that should be loaded from the above path
         scene, // The scene to load this mesh/model file into
         (meshes, particleSystem, skeletons, animationGroups) => { //on load
