@@ -13,7 +13,7 @@ const createScene = () => {
 
     BABYLON.SceneLoader.ImportMesh(
         undefined, // Name of meshes to load
-        "../assets/projection/", // Path on a server for the file
+        "../../assets/projection/", // Path on a server for the file
         "scene.glb", // The file name that should be loaded from the above path
         scene, // The scene to load this mesh/model file into
     );
